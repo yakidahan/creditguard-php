@@ -133,6 +133,13 @@ class DoDeal extends CreditGuard
     protected $uniqueid;
 
     /**
+     * The mpiValidation.
+     *
+     * @var string
+     */
+    protected $mpiValidation;
+
+    /**
      * The success url.
      *
      * @var string
@@ -341,6 +348,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the mpi validation.
+     *
+     * @param string $mpiValidation
+     */
+    public function setMpiValidation($mpiValidation)
+    {
+        $this->mpiValidation = $mpiValidation;
+    }
+
+    /**
      * Sets the success url.
      *
      * @param string $successUrl
@@ -413,8 +430,7 @@ class DoDeal extends CreditGuard
                     'user'                => $this->user,
                     'mid'                 => $this->mid,
                     'uniqueid'            => $this->uniqueid,
-                    // 'mpiValidation'       => 'Token',
-                    'mpiValidation'       => 'Verify',
+                    'mpiValidation'       => $this->mpiValidation,
                     'keepCD'              => '1',
                     // 'description'         => $this->description,
                     'email'               => $this->email,
