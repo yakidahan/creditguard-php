@@ -91,6 +91,13 @@ class DoDeal extends CreditGuard
     protected $periodicalPayment;
 
     /**
+     * The payments interest.
+     *
+     * @var string
+     */
+    protected $paymentsInterest;
+
+    /**
      * The number of payments.
      *
      * @var string
@@ -288,6 +295,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the payments interest.
+     *
+     * @param string $paymentsInterest
+     */
+    public function setPaymentsInterest($paymentsInterest)
+    {
+        $this->paymentsInterest = $paymentsInterest;
+    }
+
+    /**
      * Sets the number of payments.
      *
      * @param string $numberOfPayments
@@ -426,6 +443,7 @@ class DoDeal extends CreditGuard
                     'validation'          => $this->validation,
                     'firstPayment'        => $this->firstPayment,
                     'periodicalPayment'   => $this->periodicalPayment,
+                    'paymentsInterest'    => $this->paymentsInterest,
                     'numberOfPayments'    => $this->numberOfPayments,
                     'user'                => $this->user,
                     'mid'                 => $this->mid,

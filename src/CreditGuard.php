@@ -16,7 +16,7 @@ class CreditGuard
      *
      * @var string
      */
-    public static $apiBase = 'https://cguat2.creditguard.co.il/xpo/Relay';
+    public static $apiBase;
 
     /**
      * The CreditGuard user.
@@ -66,6 +66,16 @@ class CreditGuard
      * @var 0|1|null
      */
     public static $mayBeDuplicate = null;
+
+    /**
+     * Sets the api base url to be used for requests.
+     *
+     * @param string $apiBase
+     */
+    public static function setApiBase($apiBase)
+    {
+        self::$apiBase = $apiBase;
+    }
 
     /**
      * Sets the user to be used for requests.
