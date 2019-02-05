@@ -147,6 +147,13 @@ class DoDeal extends CreditGuard
     protected $mpiValidation;
 
     /**
+     * The authNumber.
+     *
+     * @var string
+     */
+    protected $authNumber;
+
+    /**
      * The success url.
      *
      * @var string
@@ -173,6 +180,13 @@ class DoDeal extends CreditGuard
      * @var array
      */
     protected $customerData = [];
+
+    /**
+     * The invoice.
+     *
+     * @var array
+     */
+    protected $invoice = [];
 
     /**
      * Sets the terminal number.
@@ -375,6 +389,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the auth number.
+     *
+     * @param string $authNumber
+     */
+    public function setAuthNumber($authNumber)
+    {
+        $this->authNumber = $authNumber;
+    }
+
+    /**
      * Sets the success url.
      *
      * @param string $successUrl
@@ -415,6 +439,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the invoice.
+     *
+     * @param array $invoice
+     */
+    public function setInvoice(array $invoice)
+    {
+        $this->invoice = $invoice;
+    }
+
+    /**
      * Convert the instance to an array.
      *
      * @return array
@@ -432,6 +466,8 @@ class DoDeal extends CreditGuard
                 'doDeal'         => [
                     'terminalNumber'      => $this->terminalNumber,
                     'cardNo'              => $this->cardNo,
+                    'cardId'              => $this->cardId,
+                    'cardExpiration'      => $this->cardExpiration,
                     'successUrl'          => $this->successUrl,
                     'errorUrl'            => $this->errorUrl,
                     'cancelUrl'           => $this->cancelUrl,
@@ -449,13 +485,12 @@ class DoDeal extends CreditGuard
                     'mid'                 => $this->mid,
                     'uniqueid'            => $this->uniqueid,
                     'mpiValidation'       => $this->mpiValidation,
+                    'authNumber'          => $this->authNumber,
                     'keepCD'              => '1',
                     // 'description'         => $this->description,
                     'email'               => $this->email,
-                    // 'cardId'              => $this->cardId,
                     // 'track2'              => '',
                     // 'starTotal'           => '',
-                    // 'authNumber'          => '',
                     // 'slaveTerminalNumber' => '',
                     // 'delekCode'           => '',
                     // 'delekQuantity'       => '',
@@ -466,7 +501,6 @@ class DoDeal extends CreditGuard
                     // 'clubCode'            => '',
                     // 'clubId'              => '',
                     // 'mainTerminalNumber'  => '',
-                    // 'cardExpiration'      => $this->cardExpiration,
                     // 'cvv'                 => $this->cvv,
                     // 'dealerNumber'        => '',
                     // 'last4D'              => '',
@@ -488,27 +522,7 @@ class DoDeal extends CreditGuard
                     ],
                     // 'subCustomerData' => '',
                     // 'sectorData' => '',
-                    'invoice' => [
-                        'invoiceCreationMethod' => '',
-                        'invoiceDate' => '',
-                        'invoiceSubject' => '',
-                        'invoiceDiscount' => '',
-                        'invoiceDiscountRate' => '',
-                        'invoiceItemCode' => '',
-                        'invoiceItemDescription' => '',
-                        'invoiceItemQuantity' => '',
-                        'invoiceItemPrice' => '',
-                        'invoiceTaxRate' => '',
-                        'invoiceComments' => '',
-                        'companyInfo' => '',
-                        'sendMail' => '',
-                        'mailTo' => '',
-                        'isItemPriceWithTax' => '',
-                        'ccDate' => '',
-                        'invoiceSignature' => '',
-                        'invoiceType' => '',
-                        'DocNotMaam' => '',
-                    ],
+                    'invoice' => $this->invoice,
                 ],
             ],
         ];
