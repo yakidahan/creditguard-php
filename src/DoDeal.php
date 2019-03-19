@@ -522,7 +522,7 @@ class DoDeal extends CreditGuard
                     ],
                     // 'subCustomerData' => '',
                     // 'sectorData' => '',
-                    'invoice' => $this->invoice,
+                    // 'invoice' => $this->invoice,
                 ],
             ],
         ];
