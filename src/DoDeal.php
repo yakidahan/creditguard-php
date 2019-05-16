@@ -77,6 +77,13 @@ class DoDeal extends CreditGuard
     protected $cvv;
 
     /**
+     * The id.
+     *
+     * @var string
+     */
+    protected $id;
+
+    /**
      * The first payment.
      *
      * @var string
@@ -289,6 +296,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the id.
+     *
+     * @param string $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * Sets the first payment.
      *
      * @param string $firstPayment
@@ -489,6 +506,8 @@ class DoDeal extends CreditGuard
                     'keepCD'              => '1',
                     // 'description'         => $this->description,
                     'email'               => $this->email,
+                    'cvv'                 => $this->cvv,
+                    'id'                  => $this->id,
                     // 'track2'              => '',
                     // 'starTotal'           => '',
                     // 'slaveTerminalNumber' => '',
@@ -501,10 +520,8 @@ class DoDeal extends CreditGuard
                     // 'clubCode'            => '',
                     // 'clubId'              => '',
                     // 'mainTerminalNumber'  => '',
-                    // 'cvv'                 => $this->cvv,
                     // 'dealerNumber'        => '',
                     // 'last4D'              => '',
-                    // 'id'                  => '000000000',
                     // 'cavv'                => '',
                     // 'eci'                 => '',
                     // 'clientIP'            => '',
