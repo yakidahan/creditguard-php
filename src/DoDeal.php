@@ -473,14 +473,14 @@ class DoDeal extends CreditGuard
     public function toArray()
     {
         return [
-            'request' => [
+            'request' => array_filter([
                 'command'        => 'doDeal',
                 'requestId'      => self::$requestId,
                 'dateTime'       => self::$dateTime,
                 'version'        => self::$version,
                 'language'       => self::$language,
                 'mayBeDuplicate' => self::$mayBeDuplicate,
-                'doDeal'         => [
+                'doDeal'         => array_filter([
                     'terminalNumber'      => $this->terminalNumber,
                     'cardNo'              => $this->cardNo,
                     'cardId'              => $this->cardId,
@@ -525,7 +525,7 @@ class DoDeal extends CreditGuard
                     // 'cavv'                => '',
                     // 'eci'                 => '',
                     // 'clientIP'            => '',
-                    'customerData'        => [
+                    'customerData'        => array_filter([
                         'userData1'  => $this->customerData['userData1'] ?? '',
                         'userData2'  => $this->customerData['userData2'] ?? '',
                         'userData3'  => $this->customerData['userData3'] ?? '',
@@ -536,12 +536,12 @@ class DoDeal extends CreditGuard
                         'userData8'  => $this->customerData['userData8'] ?? '',
                         'userData9'  => $this->customerData['userData9'] ?? '',
                         'userData10' => $this->customerData['userData10'] ?? '',
-                    ],
+                    ]),
                     // 'subCustomerData' => '',
                     // 'sectorData' => '',
                     // 'invoice' => $this->invoice,
-                ],
-            ],
+                ]),
+            ]),
         ];
     }
 }
