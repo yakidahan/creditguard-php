@@ -118,6 +118,16 @@ class CreditGuard
     }
 
     /**
+     * Sets the XML version.
+     *
+     * @param string $version
+     */
+    public static function setVersion($version)
+    {
+        self::$version = $version;
+    }
+
+    /**
      * Sets the language to be used for requests.
      *
      * @param string $language
@@ -137,12 +147,25 @@ class CreditGuard
         self::$mayBeDuplicate = $mayBeDuplicate;
     }
 
+    /**
+     * Get the url to be used for requests.
+     */
+    public function getUrl()
+    {
+        return self::$apiBase;
+    }
+
+    public function get()
+    {
+        return $this->request($this->toXml());
+    }
+
     public function request($body)
     {
         $client = new Client();
 
         try {
-            $response = $client->request('POST', self::$apiBase, [
+            $response = $client->request('POST', $this->getUrl(), [
                 'form_params' => [
                     'user' => self::$apiUser,
                     'password' => self::$apiPassword,
