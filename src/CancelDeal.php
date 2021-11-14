@@ -7,6 +7,69 @@ use Yadahan\CreditGuard\CreditGuard;
 class CancelDeal extends CreditGuard
 {
     /**
+     * @return string
+     */
+    public static function getRequestId(): string
+    {
+        return self::$requestId;
+    }
+
+    /**
+     * @param string $requestId
+     */
+    public static function setRequestId(string $requestId)
+    {
+        self::$requestId = $requestId;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getDateTime(): string
+    {
+        return self::$dateTime;
+    }
+
+    /**
+     * @param string $dateTime
+     */
+    public static function setDateTime(string $dateTime)
+    {
+        self::$dateTime = $dateTime;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getVersion()
+    {
+        return self::$version;
+    }
+
+    /**
+     * @param string $version
+     */
+    public static function setVersion($version)
+    {
+        self::$version = $version;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getLanguage(): string
+    {
+        return self::$language;
+    }
+
+    /**
+     * @param string $language
+     */
+    public static function setLanguage(string $language)
+    {
+        self::$language = $language;
+    }
+    /**
      * The terminal number.
      *
      * @var string
