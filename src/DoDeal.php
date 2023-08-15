@@ -154,6 +154,13 @@ class DoDeal extends CreditGuard
     protected $mpiValidation;
 
     /**
+     * The bypass3DS.
+     *
+     * @var string
+     */
+    protected $bypass3DS = false;
+
+    /**
      * The authNumber.
      *
      * @var string
@@ -187,6 +194,13 @@ class DoDeal extends CreditGuard
      * @var array
      */
     protected $customerData = [];
+
+    /**
+     * The ppsJSONConfig.
+     *
+     * @var json
+     */
+    protected $ppsJSONConfig = '';
 
     /**
      * The invoice.
@@ -406,6 +420,16 @@ class DoDeal extends CreditGuard
     }
 
     /**
+     * Sets the bypass 3DS.
+     *
+     * @param string $bypass3DS
+     */
+    public function setBypass3DS($bypass3DS)
+    {
+        $this->bypass3DS = $bypass3DS;
+    }
+
+    /**
      * Sets the auth number.
      *
      * @param string $authNumber
@@ -453,6 +477,16 @@ class DoDeal extends CreditGuard
     public function setCustomerData($customerData)
     {
         $this->customerData = $customerData;
+    }
+
+    /**
+     * Sets the ppsJSONConfig.
+     *
+     * @param string $ppsJSONConfig
+     */
+    public function setPpsJSONConfig($ppsJSONConfig)
+    {
+        $this->ppsJSONConfig = $ppsJSONConfig;
     }
 
     /**
@@ -505,6 +539,7 @@ class DoDeal extends CreditGuard
                     'uniqueid'            => $this->uniqueid,
                     'mpiValidation'       => $this->mpiValidation,
                     'keepCD'              => '1',
+                    'bypass3DS'           => $this->bypass3DS ? '1' : '0',
                     // 'description'         => $this->description,
                     'email'               => $this->email,
                     'cvv'                 => $this->cvv,
@@ -536,6 +571,9 @@ class DoDeal extends CreditGuard
                         'userData8'  => $this->customerData['userData8'] ?? '',
                         'userData9'  => $this->customerData['userData9'] ?? '',
                         'userData10' => $this->customerData['userData10'] ?? '',
+                    ]),
+                    'paymentPageData'    => array_filter([
+                        'ppsJSONConfig' => $this->ppsJSONConfig,
                     ]),
                     // 'subCustomerData' => '',
                     // 'sectorData' => '',
