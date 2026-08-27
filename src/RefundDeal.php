@@ -84,6 +84,13 @@ class RefundDeal extends CreditGuard
     protected $creditType;
 
     /**
+     * The allowOnePayment.
+     *
+     * @var string
+     */
+    protected $allowOnePayment;
+
+    /**
      * The first payment.
      *
      * @var string
@@ -240,6 +247,16 @@ class RefundDeal extends CreditGuard
     public function setCreditType($creditType)
     {
         $this->creditType = $creditType;
+    }
+
+    /**
+     * Sets the allow one payment flag.
+     *
+     * @param string $allowOnePayment
+     */
+    public function setAllowOnePayment($allowOnePayment)
+    {
+        $this->allowOnePayment = $allowOnePayment;
     }
 
     /**
