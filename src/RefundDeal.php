@@ -315,6 +315,7 @@ class RefundDeal extends CreditGuard
                     'cardExpiration'      => $this->cardExpiration,
                     'transactionType'     => $this->transactionType,
                     'creditType'          => $this->creditType,
+                    'allowOnePayment'     => $this->allowOnePayment,
                     'firstPayment'        => $this->firstPayment,
                     'periodicalPayment'   => $this->periodicalPayment,
                     'numberOfPayments'    => $this->numberOfPayments,
